@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg app-navbar sticky-top">
+    <div class="container">
+        <a class="navbar-brand brand-logo" href="/">
+            <span class="brand-icon"><i class="fa-solid fa-film"></i></span>
+            <span>BookMyTicket</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fa-solid fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-2">
+                <li class="nav-item"><a class="nav-link" href="/"><i class="fa-solid fa-house me-1"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/movies"><i class="fa-solid fa-clapperboard me-1"></i>Movies</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#theaters"><i class="fa-solid fa-building me-1"></i>Theaters</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/history"><i class="fa-solid fa-ticket me-1"></i>My Bookings</a></li>
+            </ul>
+            <form class="nav-search d-flex me-lg-3" role="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="form-control" type="search" placeholder="Search movies, theaters..." aria-label="Search">
+            </form>
+            <div class="d-flex gap-2 flex-wrap nav-actions">
+                <a class="btn btn-outline-light btn-sm rounded-pill" href="/user/login"><i class="fa-solid fa-user me-1"></i> Login</a>
+                <a class="btn btn-brand btn-sm rounded-pill" href="/admin/login"><i class="fa-solid fa-user-shield me-1"></i> Admin</a>
+            </div>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

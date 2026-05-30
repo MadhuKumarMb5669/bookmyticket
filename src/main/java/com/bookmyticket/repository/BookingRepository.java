@@ -1,0 +1,1 @@
+package com.bookmyticket.repository; import com.bookmyticket.entity.*; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface BookingRepository extends JpaRepository<Booking, Long> { java.util.List<Booking> findByUserIdOrderByBookingDateTimeDesc(Long userId); java.util.List<Booking> findAllByOrderByBookingDateTimeDesc(); }

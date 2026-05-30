@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<aside th:fragment="adminSidebar" class="admin-sidebar">
+    <a class="brand-logo admin-brand" href="/admin/dashboard"><span class="brand-icon"><i class="fa-solid fa-film"></i></span><span>BookMyTicket</span></a>
+    <div class="admin-user"><i class="fa-solid fa-user-shield"></i><div><strong>Admin Panel</strong><small>Management Console</small></div></div>
+    <nav>
+        <a href="/admin/dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+        <a href="/admin/movies"><i class="fa-solid fa-clapperboard"></i> Movies</a>
+        <a href="/admin/theaters"><i class="fa-solid fa-building"></i> Theaters</a>
+        <a href="/admin/shows"><i class="fa-solid fa-clock"></i> Shows</a>
+        <a href="/admin/seats"><i class="fa-solid fa-chair"></i> Seats</a>
+        <a href="/admin/bookings"><i class="fa-solid fa-receipt"></i> Bookings</a>
+        <a href="/" target="_blank"><i class="fa-solid fa-globe"></i> View Site</a>
+        <a class="logout-link" href="/admin/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+</aside>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('BookMyTicket')}"></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header id="homeHero" class="carousel slide hero-carousel" data-bs-ride="carousel">
+    <div class="carousel-indicators"><button type="button" data-bs-target="#homeHero" data-bs-slide-to="0" class="active"></button><button type="button" data-bs-target="#homeHero" data-bs-slide-to="1"></button><button type="button" data-bs-target="#homeHero" data-bs-slide-to="2"></button></div>
+    <div class="carousel-inner">
+        <div class="carousel-item active"><div class="hero-slide hero-one"><div class="container hero-content reveal"><span class="eyebrow"><i class="fa-solid fa-bolt"></i> Premium Movie Booking</span><h1>Book your perfect movie night in seconds.</h1><p>Select movie, theater, showtime and seats with a clean theater-style booking experience.</p><div class="d-flex gap-3 flex-wrap"><a class="btn btn-brand btn-lg" href="/user/login">Book Now</a><a class="btn btn-glass btn-lg" href="#trending">Explore Movies</a></div></div></div></div>
+        <div class="carousel-item"><div class="hero-slide hero-two"><div class="container hero-content"><span class="eyebrow"><i class="fa-solid fa-star"></i> Trending Now</span><h1>Experience cinema with modern comfort.</h1><p>Discover top movies, theaters, offers, and instant booking confirmation.</p><a class="btn btn-brand btn-lg" href="/user/movies">View Movies</a></div></div></div>
+        <div class="carousel-item"><div class="hero-slide hero-three"><div class="container hero-content"><span class="eyebrow"><i class="fa-solid fa-ticket"></i> Smart Ticketing</span><h1>Choose seats. Pay less. Enjoy more.</h1><p>Responsive UI, booking history, ticket cards, and admin control panel.</p><a class="btn btn-brand btn-lg" href="/admin/login">Admin Login</a></div></div></div>
+    </div>
+</header>
+
+<main>
+    <section id="trending" class="section-space container">
+        <div class="section-heading reveal"><div><span class="section-kicker">Now Showing</span><h2>Trending Movies</h2></div><a href="/user/movies" class="view-link">View all <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="movie-grid">
+            <article class="movie-card reveal" th:each="m:${movies}">
+                <div class="poster-wrap"><img th:src="${m.posterImageUrl}" alt="Movie poster"><span class="rating-badge"><i class="fa-solid fa-star"></i> 4.8</span></div>
+                <div class="movie-body"><h3 th:text="${m.name}">Movie Name</h3><p class="movie-desc" th:text="${m.description}">Description</p><div class="movie-meta"><span th:text="${m.language}">Kannada</span><span th:text="${m.genre}">Action</span><span th:text="${m.duration}">2h 30m</span></div><div class="movie-footer"><span class="release"><i class="fa-regular fa-calendar"></i> <span th:text="${m.releaseDate}"></span></span><a class="btn btn-brand btn-sm" th:href="@{'/user/movie/'+${m.id}+'/shows'}">Book Now</a></div></div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-space upcoming-band">
+        <div class="container"><div class="section-heading reveal"><div><span class="section-kicker">Coming Soon</span><h2>Upcoming Movies</h2></div></div><div class="offer-grid"><div class="feature-card reveal"><i class="fa-solid fa-fire"></i><h4>Pan India Releases</h4><p>Track upcoming Kannada, Hindi, Tamil and Telugu movies.</p></div><div class="feature-card reveal"><i class="fa-solid fa-popcorn"></i><h4>Premium Screens</h4><p>Enjoy high-quality theaters with better seating choices.</p></div><div class="feature-card reveal"><i class="fa-solid fa-tags"></i><h4>Featured Offers</h4><p>Showcase student-friendly deals and demo coupons.</p></div></div></div>
+    </section>
+
+    <section id="theaters" class="section-space container">
+        <div class="section-heading reveal"><div><span class="section-kicker">Top Theaters</span><h2>Best Cinema Experience</h2></div></div>
+        <div class="theater-list"><div class="theater-card reveal"><i class="fa-solid fa-building-columns"></i><div><h4>PVR Orion Mall</h4><p>Rajajinagar, Bengaluru • Dolby Audio • Recliner Seats</p></div><span>4.9</span></div><div class="theater-card reveal"><i class="fa-solid fa-building"></i><div><h4>INOX Garuda</h4><p>MG Road, Bengaluru • Premium Screens • Food Court</p></div><span>4.7</span></div><div class="theater-card reveal"><i class="fa-solid fa-tv"></i><div><h4>Cinepolis Forum</h4><p>Koramangala, Bengaluru • Luxury Seating • Fast Entry</p></div><span>4.8</span></div></div>
+    </section>
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+package com.bookmyticket.repository; import com.bookmyticket.entity.*; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface ShowRepository extends JpaRepository<Show, Long> { java.util.List<Show> findByMovieId(Long movieId); }

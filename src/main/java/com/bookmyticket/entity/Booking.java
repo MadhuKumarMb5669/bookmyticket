@@ -1,0 +1,4 @@
+package com.bookmyticket.entity;
+import jakarta.persistence.*; import lombok.*; import java.math.BigDecimal; import java.time.LocalDateTime; import java.util.*;
+@Entity @Table(name="bookings") @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+public class Booking { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; @ManyToOne(optional=false) private User user; @ManyToOne(optional=false) private Show show; @Column(nullable=false) private BigDecimal totalPrice; @Enumerated(EnumType.STRING) private BookingStatus status; private LocalDateTime bookingDateTime; @OneToMany(mappedBy="booking", cascade=CascadeType.ALL, orphanRemoval=true) private List<BookingSeat> bookingSeats=new ArrayList<>(); public String seatsText(){ if(bookingSeats==null) return ""; return bookingSeats.stream().map(BookingSeat::getSeatNumber).sorted().reduce((a,b)->a+", "+b).orElse(""); } }

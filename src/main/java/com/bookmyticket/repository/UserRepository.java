@@ -1,0 +1,1 @@
+package com.bookmyticket.repository; import com.bookmyticket.entity.*; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface UserRepository extends JpaRepository<User, Long> { java.util.Optional<User> findByMobile(String mobile); }

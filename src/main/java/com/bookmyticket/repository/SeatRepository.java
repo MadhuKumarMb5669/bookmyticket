@@ -1,0 +1,1 @@
+package com.bookmyticket.repository; import com.bookmyticket.entity.*; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface SeatRepository extends JpaRepository<Seat, Long> { java.util.List<Seat> findByTheaterIdOrderBySeatNumberAsc(Long theaterId); boolean existsByTheaterIdAndSeatNumber(Long theaterId, String seatNumber); }
